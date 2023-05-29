@@ -70,8 +70,8 @@ int main()
 {
     char escolha;
     double a, b, c;
-    double angulo, radianos, diferenca, precisao = 1e-6, raiz;
-    int resposta, num1, num2, indice;
+    double angulo, radianos;
+    int resposta, num1, num2;
 
     resposta = menu();
 
