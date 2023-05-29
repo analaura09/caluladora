@@ -27,7 +27,7 @@ int menu()
 
     sleep(3);
 
-    printf("\n1- ADIÇÃO\n");
+    printf("\n1- ADICAO\n");
     printf("2- SUBTRACAO\n");
     printf("3- DIVISAO\n");
     printf("4- MULTIPLICACAO\n");
@@ -67,9 +67,9 @@ int menu()
 int main()
 // Função contendo as operações matematicas
 {
-    int resposta, num1, num2;
-    double angulo, radianos;
     char escolha;
+    double angulo, radianos;
+    int resposta, num1, num2, raiz = 1;
 
     resposta = menu();
 
@@ -218,6 +218,27 @@ int main()
 
         if (escolha == 'S' || escolha == 's')
         {
+            menu();
+        }
+    }
+
+    if (resposta == 8)
+    {
+        do
+        {
+            printf("Digite a base da exponenciacao:\n");
+            scanf("%d", &num1);
+            printf("Digite o valor do expoente:\n");
+            scanf("%d", &num2);
+
+            printf("O resultado de %d elevado a %d e %.2lf \n", num1, num2, pow(num1, num2));
+            printf("Deseja mudar a operacao: [S/N]\n");
+            scanf("%s", &escolha);
+        } while (escolha == 'N' || escolha == 'n');
+
+        if (escolha == 'S' || escolha == 's')
+        {
+
             menu();
         }
     }
