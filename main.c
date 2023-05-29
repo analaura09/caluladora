@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <unistd.h>
 // Bibliotecas ultilizadas no código
 
 int menu()
@@ -36,7 +37,7 @@ int menu()
     printf("7- TANGENTE\n");
     printf("8- EXPONENCIAL\n");
     printf("9- RADICIACAO\n");
-    printf("10- RAIZ QUADRADA\n");
+    printf("10- RAIZ DE POLINOMIO DO SEGUNDO GRAU\n");
 
     printf("0- SAIR\n");
     // Opções de opeações da calculadora
@@ -68,8 +69,9 @@ int main()
 // Função contendo as operações matematicas
 {
     char escolha;
-    double angulo, radianos;
-    int resposta, num1, num2, raiz = 1;
+    double a, b, c;
+    double angulo, radianos, diferenca, precisao = 1e-6, raiz;
+    int resposta, num1, num2, indice;
 
     resposta = menu();
 
@@ -240,6 +242,36 @@ int main()
         {
 
             menu();
+        }
+    }
+
+    if (resposta == 9)
+    {
+    }
+
+    if (resposta == 10)
+    {
+        printf("Digite os coeficientes do polinomio (a, b, c): ");
+        scanf("%lf %lf %lf", &a, &b, &c);
+
+        double discriminante = b * b - 4 * a * c;
+
+        if (discriminante > 0)
+        {
+            double raiz1 = (-b + sqrt(discriminante)) / (2 * a);
+            double raiz2 = (-b - sqrt(discriminante)) / (2 * a);
+
+            printf("As raizes sao: %.2lf e %.2lf\n", raiz1, raiz2);
+        }
+        else if (discriminante == 0)
+        {
+            double raiz = -b / (2 * a);
+
+            printf("A raiz e: %.2lf\n", raiz);
+        }
+        else
+        {
+            printf("O polinomio nao possui raizes reais.\n");
         }
     }
 
